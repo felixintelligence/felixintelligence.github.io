@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FelixSourcingBot</title>
+<meta name="robots" content="index, follow">
+<style>
+  :root { --bg:#ffffff; --fg:#1c2124; --muted:#5b6469; --rule:#e3e6e8; --code:#f3f5f6; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#14181b; --fg:#e8ecee; --muted:#a3adb3; --rule:#2a3136; --code:#1d2327; } }
+  body { margin:0; background:var(--bg); color:var(--fg); font:16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+  main { max-width:680px; margin:0 auto; padding:48px 20px 64px; }
+  h1 { font-size:28px; line-height:1.2; margin:0 0 8px; }
+  h2 { font-size:18px; margin:32px 0 8px; }
+  p, li { color:var(--fg); }
+  .sub { color:var(--muted); margin:0 0 24px; }
+  code, pre { background:var(--code); border-radius:6px; font:14px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace; }
+  code { padding:1px 6px; }
+  pre { padding:12px 14px; overflow-x:auto; }
+  hr { border:0; border-top:1px solid var(--rule); margin:32px 0; }
+  a { color:inherit; }
+  footer { color:var(--muted); font-size:14px; }
+</style>
+</head>
+<body>
+<main>
+  <h1>FelixSourcingBot</h1>
+  <p class="sub">The web crawler for Felix, a research tool that maps independent physician practices.</p>
+
+  <p>If you found this page in your server logs, our bot visited your site. Its User-Agent is:</p>
+  <pre>FelixSourcingBot/1.0 (+https://felixintelligence.github.io/bot/)</pre>
+
+  <h2>What it does</h2>
+  <p>It visits the public website of a medical practice to confirm business facts the practice publishes about itself: its name, address, phone number, specialty and locations. It looks for the practice's own site, not for patients and not for individuals.</p>
+
+  <h2>How it behaves</h2>
+  <ul>
+    <li>At most one request per second to any site.</li>
+    <li>It reads <code>robots.txt</code> first and skips the site if a rule disallows it, or if a crawl delay is longer than its own interval.</li>
+    <li>Public pages only. It never logs in, submits forms, accepts terms or keeps cookies.</li>
+    <li>It reads text only and stores the facts it extracts. It does not keep copies of your pages, text or images.</li>
+  </ul>
+
+  <h2>What it never collects</h2>
+  <ul>
+    <li>Patient information of any kind.</li>
+    <li>Personal contact details of physicians or staff, such as a personal phone number, personal email or home address.</li>
+    <li>Anything behind a login or a patient portal.</li>
+  </ul>
+
+  <h2>How to block it</h2>
+  <p>Add this to your site's <code>robots.txt</code>:</p>
+  <pre>User-agent: FelixSourcingBot
+Disallow: /</pre>
+  <p>The bot obeys this rule on its next visit. You can also email us and we will exclude your site.</p>
+
+  <h2>Contact</h2>
+  <p>Questions, corrections or removal requests: <a href="mailto:felixbot365@gmail.com">felixbot365@gmail.com</a></p>
+
+  <hr>
+  <footer>Felix. This page describes the crawler only.</footer>
+</main>
+</body>
+</html>
